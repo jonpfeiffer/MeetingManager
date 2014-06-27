@@ -7,15 +7,15 @@
 	<title>Page Title</title>
 	
 	<!-- Main CSS -->
-	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/MVC/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/MVC/css/styles.css">
+	<link rel="stylesheet" href="/MVC/css/main.css">
 
 	<!-- Payload CSS -->
 	<?php echo Payload::get_css(); ?>
 
 	<!-- Modernizr -->
-	<script src="/bower_components/modernizr/modernizr.js"></script>
-	<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/MVC/bower_components/modernizr/modernizr.js"></script>
 
 </head>
 <body>
@@ -26,15 +26,16 @@
 	</div>
 
 	<!-- Include Common Scripts -->
-	<script src="/bower_components/jquery/dist/jquery.js"></script>
-	<script src="/bower_components/ReptileForms/dist/reptileforms.js"></script>
+	<script src="/MVC/bower_components/jquery/dist/jquery.js"></script>
+	<script src="/MVC/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/MVC/bower_components/ReptileForms/dist/reptileforms.js"></script>
 
 	<!-- Get JS -->
 	<script>var app = {};app.settings=<?php echo Payload::get_settings(); ?>;</script>
 	<?php echo Payload::get_js(); ?>
 	
 	<!-- Main JS -->
-	<script src="/js/main.js"></script>
+	<script src="/MVC/js/main.js"></script>
 
 </body>
 </html>

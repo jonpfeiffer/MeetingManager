@@ -1,3 +1,115 @@
 /**
  * Application Styles
  */
+
+body {
+  background-color: #CCC;
+}
+.navbar-brand {
+  text-align: center; 
+}
+.container {
+  margin: auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+.welcome{
+  width: 100%;
+}
+
+.login-button {
+  margin: auto;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  width: 44.7%;
+  height: 67px;
+  background-color: red;
+}
+
+.signup-button {
+  margin: auto;
+  margin-bottom: 96px;
+  width: 23.6%;
+  height: 41px;
+  background-color: green;
+}
+
+.buttons {
+  padding: 1px;
+}
+.pos, .neg {
+  height: 51px;
+  width: 49%;
+  background-color: orange;
+  margin: 2px;
+  line-height: 51px;
+  text-align: center;
+}
+
+.pos {
+  float: right;
+}
+
+.login {
+  width: 77%;
+  height: 184px;
+  margin: auto;
+  margin-top: 24px;
+  background-color: purple;
+}
+
+.login p {
+  text-align: center;
+}
+
+/*input {
+  display: block;
+}*/
+
+.meeting-create {
+  /*margin: auto;*/
+  margin-top: 24px;
+  margin-bottom: 12px;
+  width: 77%;
+  height: 115px;
+  border-radius: 8px;
+}
+
+.lower-container {
+  margin-top: 48px;
+  overflow: auto;
+  height: 258px;
+  margin-bottom: 35px;
+}
+
+.top-row, .bottom-row {
+  background-color: blue;
+  /*text-align: center;*/
+}
+
+
+.meeting-button {
+    display: inline-block;
+    margin: 6px;
+    /*margin-top: 6px;
+    margin-bottom: 6px;*/
+    background-color: green;
+    width:60px;
+    height:60px;
+}
+
+.scrollup, .scrolldown {
+    margin: auto;
+    background-color: yellow;
+    width: 40px;
+    height: 40px;
+}
+
+footer {
+  height: 35px;
+  width: 100%;
+  position: fixed;
+  margin:0;
+  bottom: 0px;
+}

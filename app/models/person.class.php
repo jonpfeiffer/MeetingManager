@@ -1,12 +1,12 @@
 <?php
 
 /**
- * User
+ * Person
  */
-class User extends Model {
+class Person extends Model {
 
 	/**
-	 * Save User
+	 * Save Person
 	 */
 	public static function save($input) {
 
@@ -15,24 +15,25 @@ class User extends Model {
 
 		// Prepare SQL Values
 		$sql_values = [
-			'user_id' => $input['user_id'],
+			'person_id' => $input['person_id'],
 			'first_name' => $input['first_name'],
 			'last_name' => $input['last_name'],
 			'email' => $input['email'],
-			'password' => $input['password']
+			'password' => $input['password'],
+			'registered' => 0
 		];
 
 		// Ensure values are encompased with quote marks
 		$sql_values = db::array_in_quotes($sql_values);
 
 		// Insert
-		$results = db::insert('user', $sql_values);
+		$results = db::insert('person', $sql_values);
 		
 		// Get Recent Insert ID
-		$user_id = $results->insert_id;
+		$person_id = $results->insert_id;
 
 		// Return a new instance of this user as an object
-		return new User($user_id);
+		return new Person($person_id);
 
 	}
 

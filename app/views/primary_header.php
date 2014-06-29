@@ -18,7 +18,7 @@
           <li class="text-center">Welcome <a href="#">$user</a></li>
           <li class="active"><a href="#">Create a Meeting</a></li>
           <li><a href="#">View Past Meetings</a></li>
-          <li><a href="#">View Upcoming Meetings</a></li>
+          <li><a href="loggedin.php">View Upcoming Meetings</a></li>
           <li><a href="#">Logout</a></li>
             </ul>
           </li>

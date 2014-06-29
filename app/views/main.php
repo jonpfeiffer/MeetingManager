@@ -9,7 +9,6 @@
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="/MVC/bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/MVC/css/styles.css">
-	<link rel="stylesheet" href="/MVC/css/main.css">
 
 	<!-- Payload CSS -->
 	<?php echo Payload::get_css(); ?>

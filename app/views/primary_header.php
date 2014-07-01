@@ -9,11 +9,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-briefcase"></span>Meeting Manager</a>
+        <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-briefcase"></span>Meeting Manager</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li class="text-center">Welcome <a href="#">$user</a></li>
           <li class="active"><a href="#">Create a Meeting</a></li>

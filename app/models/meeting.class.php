@@ -2,49 +2,86 @@
 
 class Meeting extends Model {
 
+  public function __construct(){
+  }
+
+  private $title = "";
+  private $location = "";
+  private $sched = "";
+  private $start = "";
+  private $end = "";
+  private $meeting_id = 0;
+  private $person_id = 0;
+  private $attendees = [];
+
+
+  public function getTitle(){
+    return $this->title;
+  }
+
+  public function setTitle($title){
+    return $this->title = $title;
+  } 
+
+  public function getLocation(){
+    return $this->location;
+  }
+
+  public function setLocation($location){
+    return $this->location = $location;
+  } 
+
+  public function getSched(){
+    return $this->sched;
+  }
+
+  public function setSched($sched){
+    return $this->sched = $sched;
+  } 
+
+  public function getStart(){
+    return $this->start;
+  }
+
+  public function setStart($start){
+    return $this->start = $start;
+  } 
+
+  public function getEnd(){
+    return $this->end;
+  }
+
+  public function setEnd($end){
+    return $this->end = $end;
+  } 
+
+  public function getOwner(){
+    return $this->person_id;
+  }
+
+  public function setOwner($person_id){
+    return $this->person_id = $person_id;
+  }
+
+  public function setId($meeting_id){
+    return $this->meeting_id = $meeting_id;
+  }
   
-  /**
-   * Create Meeting
-   */
-  public static function create($id) {
-    $sql_values = [
-        person_id => $id
-    ];
-
-    $sql_values = db::array_in_quotes($sql_values);
-
-    // Update
-    $results = db::insert('meeting', $sql_values);
-    
-    // Get Recent Insert ID
-    $meeting_id = $results->insert_id;
-
-    // Return a new instance of this meeting as an object
-    return new Meeting($meeting_id);
-    
+  public function getId(){
+    return $this->meeting_id;
   }
 
-  /**
-   * Save Meeting
-   */
-  public static function save($input) {
+  public function getAttendees(){
+    return $this->attendees;
+  }
 
-    // Note that Server Side validation is not being done here
+  public function getPrettyDate(){
 
+      $date = preg_split( "/(-| )/", $this->sched);
+      $dateout = $date[1] . "/" . $date[2];
 
-    // Prepare SQL Values DOUBLE CHECK AGAINST FORM
-    $sql_values = [
-      'title' => $input['title'],
-      'location' => $input['location'],
-      'datetime_sched' => $input['scheduled']
-    ];
-
-    // Ensure values are encompased with quote marks
-    $sql_values = db::array_in_quotes($sql_values);
-
-    //Update 
-    $results = db::update('meeting', $sql_values, "WHERE meeting_id = {$meeting_id}");
-
+      return $dateout;
 
   }
+
 }

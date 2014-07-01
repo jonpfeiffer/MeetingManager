@@ -4,9 +4,11 @@
     parent::__construct();
 
     // Save Person
-    $person = Person::save($_POST);
+    $email = $_POST['email'];
+    
+    $person = Person::save($email);
     //Ordering Nested Call? how to resolve need to add to both tables
-    $join = MeetingParticipant::save($_POST);
+    $join = Participant::save($person, $meeting);
     // Putting content in the output without using the view such as this
     // will cause an error with the AjaxController
     //echo 'unexpected';

@@ -5,36 +5,62 @@
  */
 class Person extends Model {
 
-	/**
-	 * Save Person
-	 */
-	public static function save($input) {
+	public function __construct(){
+    }
 
-		// Note that Server Side validation is not being done here
+    private $email = "";
+    private $first_name = "";
+    private $last_name = "";
+    private $password = "";
+    
+    public $registered = false;
+    public $loggedIn = false;
 
+    public function getEmail(){
+        return $this->email;
+    }
 
-		// Prepare SQL Values
-		$sql_values = [
-			'person_id' => $input['person_id'],
-			'first_name' => $input['first_name'],
-			'last_name' => $input['last_name'],
-			'email' => $input['email'],
-			'password' => $input['password'],
-			'registered' => 0
-		];
+    public function setEmail($email){
+        return $this->email = $email;
+    }
 
-		// Ensure values are encompased with quote marks
-		$sql_values = db::array_in_quotes($sql_values);
+    public function getPassword(){
+        return $this->password;
+    }
 
-		// Insert
-		$results = db::insert('person', $sql_values);
-		
-		// Get Recent Insert ID
-		$person_id = $results->insert_id;
+    public function setPassword($password){
+        return $this->password = password_hash($password);
+    }
 
-		// Return a new instance of this user as an object
-		return new Person($person_id);
+    public function getFirstName(){
+        return $this->first_name;
+    }
 
-	}
+    public function setFirstName($first_name){
+        return $this->first_name = $first_name;
+    }
 
+    public function getLastName(){
+        return $this->last_name;
+    }
+
+    public function setLastName($last_name){
+        return $this->last_name = $last_name;
+    }
+
+    public function getRegistered(){
+        return $this->registered;
+    }
+
+    public function setRegistered($registered){
+        return $this->registered = $registered;
+    }
+
+    public function getLoggedIn(){
+        return $this->loggedIn;
+    }
+
+    public function setLoggedIn($loggedIn){
+        return $this->loggedIn = $loggedIn;
+    }
 }

@@ -8,15 +8,15 @@
             $('#attendee').val("");
         });
 
-        $('form').on('click', '.more', function(e){
-            e.preventDefault();
-            var data = $('#participants').serialize();
+        $('button.more').click(function(e){
+            var data = $('#attendee').val("");
             request = $.ajax({
-                url:'addparticipants.php',
+                url:'index.php/person',
                 type: 'post',
-                data: data
-            });
-            
-        });
+                data: data,
+                cache: false
+                });    
+            $('.well').removeClass('hidden');
     });
+       
 })(jQuery);

@@ -6,39 +6,53 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/MVC/app/core/initialize.php');
 
 // Controller
-class Controller extends AppController {
+class sMainController extends AppController {
 	public function __construct() {
 		parent::__construct();
 
+        
+	}
+
+    public function defaultAction(){
+
         $sql = "SELECT *
                 FROM meeting
-                WHERE user_id = 1
-                AND datetime_sched > NOW() - INTERVAL 1 DAY";
+                WHERE person_id = 1
+                AND datetime_sched > NOW() - INTERVAL 4 HOUR";
 
         $results = db::execute($sql);
-        
-        // Build a button for each meeting today or in the future
+
+
+        $meetings = [];
         while($row = $results->fetch_assoc()){
-            $date = [];
-            $date = preg_split( "/(-| )/", $row['datetime_sched'] );
-            $dateout = $date[1] . "/" . $date[2];
-            $this->view->meetings .= "<button class='btn btn-default btn-success meeting-button' id='{$row['meeting_id']}'>" . $dateout . "</button>";
+
+            $meeting = new Meeting();
+            $meeting->setId($row['meeting_id']);
+            $meeting->setSched($row['datetime_sched']);
+
+            array_push($meetings, $meeting);
+
+            
+            //$this->view->meetings .= "<button class='btn btn-default btn-success meeting-button' id='{$row['meeting_id']}'>" . $dateout . "</button>";
         }
-	}
+
+        // Prepare ViewData
+        $this->view->meetings = $meetings;
+
+
+       // extract($controller->view->vars);
+
+
+        include('defaultView.php');
+
+    }
 
 }
 
-$controller = new Controller();
+$controller = new sMainController();
+$controller->defaultAction();
 
 // Extract Main Controler Vars
-extract($controller->view->vars);
+
 
 ?>
-    <button class="btn-primary btn-large meeting-create center-block">New Meeting</button>
-    <h3 class="text-center">Your Upcoming Meetings</h3>
-    <hr>
-    <div class="lower-container container text-center">
-        <?php echo $meetings ?>
-    </div>
-    <footer><button class="btn btn-default btn-lg btn-block">Past Meetings</button></footer>
-  

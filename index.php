@@ -29,8 +29,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/MVC/app/core/initialize.php');
         $mainController->createMeetingAction($_POST);
     }elseif($tail == "newmeeting"){
         $mainController->newMeetingAction();
-    }elseif($tail == "person"){
-        
+    }elseif($tail == "person" && $isPost){
+        $mainController->newMeetingAction($meeting);
     }else{
         $mainController->defaultAction();
     }

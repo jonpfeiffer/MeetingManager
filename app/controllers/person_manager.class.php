@@ -17,22 +17,27 @@ class PersonManager extends AppController{
             'last_name' => db::in_quotes($person->getLastName()),
             'password' => db::in_quotes($person->getPassword())
         ];
-        db::insert('person', $person_sql_values);
+        $results = db::insert('person', $person_sql_values);
+        // die(print_r($results));
+        return $results->insert_id;
     }
 
     public static function personExists($email){
+        $email = db::in_quotes($email);
         $sql = "SELECT *
                 FROM person
                 WHERE email = $email
                 LIMIT 1";
 
         $results = db::execute($sql);
-
-        if ($results->numrows > 0){
+        if ($results->num_rows > 0){
             $results = $results->fetch_assoc();
-            return $results;
+            // $person = PersonController::newPerson($results);
+            $person = $results['person_id'];
+            return $person;
         }else{
-            $results = $this->newPerson();
+            $results = self::newPerson();
+        // die(print_r($results));
             return $results;
         }
 

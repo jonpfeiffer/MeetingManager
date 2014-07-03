@@ -1,7 +1,7 @@
-<form role="form" action="index.php/newmeeting" method="POST">
+<form role="form" id="meetingform" action="http://jon.com/MVC/index.php/newmeeting" method="POST">
     <div class="container">
-        <button class="btn btn-large col-xs-6 pull-left">Cancel</button>
-        <button type="submit" class="btn btn-large btn-default col-xs-6">Done</button>
+        <button type="button" class="btn btn-large col-xs-6 pull-left">Cancel</button>
+        <button type="button" class="btn btn-large btn-default col-xs-6 done">Done</button>
     </div>
     <div class="form-group">
         <label for="meeting-title">What:</label>
@@ -24,18 +24,13 @@
     <label for="attendee">Who:</label>
     <div class="form-group">
         <div class="input-group">
-            <span class="input-group-btn"><button class="btn btn-default empty"><span class="glyphicon glyphicon-minus"></span></button></span>
-            <input type="email" id="attendee" class="form-control" name="attendee" placeholder="someone@example.com" required maxlength="100">
-            <span class="input-group-btn less"><button class="btn btn-default more"><span class="glyphicon glyphicon-plus"></span></button></span>
+            <span class="input-group-btn"><button type="button" class="btn btn-default empty"><span class="glyphicon glyphicon-minus"></span></button></span>
+            <input type="email" id="attendee" class="form-control" name="add-attendee" placeholder="someone@example.com" maxlength="100">
+            <span class="input-group-btn less"><button type="button" class="btn btn-default more"><span class="glyphicon glyphicon-plus"></span></button></span>
         </div>
     </div>
-    <input type="hidden" value="<?php $attendees ?>">
-</form>
-<div class="well hidden">
-    <ul class="participants">
-        <?php foreach ($attendees as $attendee) { ?>
-            
-        <li><?php echo $attendee->getEmail() ?> <button id="<?php echo $attendee->getId() ?>" class="btn btn-xs rm-participant">X</button></li>
-        <?php } ?>
-    </ul>
+    <input type="hidden" name="count" id="count" value="0">
+<div class="well hidden participants">
+    
 </div>
+</form>

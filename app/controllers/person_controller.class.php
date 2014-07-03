@@ -13,8 +13,9 @@
             $person->setLastName($request['last_name']);
             $person->setPassword($request['password']);
             // $person->attendees => $request['attendees']
-            //    die(print_r($request['sched']));
-            PersonManager::createPerson($person);
+            $out = PersonManager::createPerson($person);
+            // die(print_r($out));
+            return $out;
         }
 
         public function getPerson($request){

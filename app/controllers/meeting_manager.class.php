@@ -9,22 +9,30 @@ class MeetingManager extends AppController{
         return $meeting;
     }
 
-    public static function createMeeting($meeting){
-        // $attendees = $meeting->getAttendees();
-
-        // foreach ($attendees as $attendee => $value) {
-            
-
-        // }
-        // die(print_r($meeting));
-
+    public static function createMeeting($meeting, $attendees){
         $meeting_sql_values = [
             'location' => db::in_quotes($meeting->getLocation()),
             'title' => db::in_quotes($meeting->getTitle()),
             'datetime_sched' => db::in_quotes($meeting->getSched()),
             'person_id' => db::in_quotes($meeting->getOwner())
         ];
-        db::insert('meeting', $meeting_sql_values);
+        $meeting = db::insert('meeting', $meeting_sql_values);
+
+        // die(print_r($attendees));
+        foreach ($attendees as $attendee) {
+                // die(print_r($attendee));
+            $attendee_sql_values = [
+                'meeting_id' => db::in_quotes($meeting->insert_id),
+                'person_id' => db::in_quotes($attendee),
+                'speaking_duration' => db::in_quotes(0),
+                'is_active' => db::in_quotes(0)
+            ];
+
+            db::insert('meeting_participant', $attendee_sql_values);
+            
+
+        }
+
     }
         // return $meeting_sql_values;
 

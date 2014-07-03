@@ -12,6 +12,7 @@ class Person extends Model {
     private $first_name = "";
     private $last_name = "";
     private $password = "";
+    private $id = 0;
     
     public $registered = false;
     public $loggedIn = false;
@@ -24,12 +25,20 @@ class Person extends Model {
         return $this->email = $email;
     }
 
+    public function getId(){
+        return $this->id;
+    }
+
+    public function setId($id){
+        return $this->id = $id;
+    }
+
     public function getPassword(){
         return $this->password;
     }
 
     public function setPassword($password){
-        return $this->password = password_hash($password);
+        return $this->password = password_hash($password, PASSWORD_DEFAULT);
     }
 
     public function getFirstName(){

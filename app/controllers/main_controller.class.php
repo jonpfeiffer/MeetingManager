@@ -33,6 +33,7 @@ class MainController extends AppController {
 
 
         MeetingController::newMeeting($request);
+        //Fix hard coded user id
         MeetingManager::getCurrentMeetings(1);
         // // Prepare ViewData
         // $this->view->meetings = $meetings;

@@ -40,7 +40,8 @@ class MeetingManager extends AppController{
         $sql = "SELECT *
                 FROM meeting
                 WHERE person_id = $person_id
-                AND datetime_sched > NOW() - INTERVAL 4 HOUR";
+                AND datetime_sched > NOW() - INTERVAL 4 HOUR
+                ORDER BY datetime_sched";
 
         $results = db::execute($sql);
 

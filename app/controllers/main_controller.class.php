@@ -8,8 +8,7 @@ class MainController extends AppController {
         Payload::js('/MVC/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
         Payload::js('/MVC/js/date.js');
         Payload::js('/MVC/js/addparticipants.js');
-        Payload::css('eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.css');
-        
+        Payload::css('/MVC/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.css');
     }
 
     public function defaultAction(){
@@ -40,5 +39,9 @@ class MainController extends AppController {
         
         // $this->defaultAction();
         include('defaultView.php');
+    }
+
+    public function liveMeetingAction(){
+        include('meeting.php');
     }
 }

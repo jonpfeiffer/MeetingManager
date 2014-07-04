@@ -2,6 +2,11 @@
  * Application Styles
  */
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
   background-color: #CCC;
 }
@@ -117,3 +122,44 @@ footer {
   margin:0;
   bottom: 10px;
 }
+
+.time{
+  width: 75px;
+  height: 75px;
+  /*background-color: orange;*/
+}
+
+.outside {
+  padding: 0;
+}
+img {
+  padding: 0;
+}
+.one, .two, .three {
+  height: 80px;
+  /*padding: 0;*/
+}
+.one {
+  /*margin-left: 0;*/
+  /*margin-right: 25px;*/
+  /*border: 1px red solid;*/
+  padding: 0;
+}
+
+.one img{
+  margin-left: 10px;
+}
+
+.two {
+  /*border: 1px black solid;*/
+  padding: 0;
+  margin: 0;
+}
+.three {
+  /*margin-left: -45px;*/
+  /*border: 1px green solid;*/
+  margin-left: -5px;
+}
+
+
+

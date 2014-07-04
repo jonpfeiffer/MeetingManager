@@ -31,6 +31,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/MVC/app/core/initialize.php');
         $mainController->newMeetingAction();
     }elseif($tail == "person" && $isPost){
         $mainController->newMeetingAction($meeting);
+    }elseif($tail == "meeting"){
+        $mainController->liveMeetingAction();
     }else{
         $mainController->defaultAction();
     }

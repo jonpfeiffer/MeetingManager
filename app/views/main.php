@@ -8,6 +8,7 @@
 	
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="/MVC/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/MVC/css/TimeCircles.css">
 	<link rel="stylesheet" href="/MVC/css/styles.css">
 
 	<!-- Payload CSS -->
@@ -15,7 +16,6 @@
 
 	<!-- Modernizr -->
 	<script src="/MVC/bower_components/modernizr/modernizr.js"></script>
-
 </head>
 <body>
 
@@ -26,6 +26,7 @@
 
 	<!-- Include Common Scripts -->
 	<script src="/MVC/bower_components/jquery/dist/jquery.js"></script>
+	<script src="/MVC/js/TimeCircles.js"></script>
 	<script src="/MVC/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="/MVC/bower_components/ReptileForms/dist/reptileforms.js"></script>
 
@@ -34,7 +35,7 @@
 	<?php echo Payload::get_js(); ?>
 	
 	<!-- Main JS -->
-	<script src="/MVC/js/main.js"></script>
+	<script src="/MVC/js/meeting.js"></script>
 
 </body>
 </html>

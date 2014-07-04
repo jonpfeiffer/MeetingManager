@@ -1,0 +1,17 @@
+.a {
+    /*background-color: blue;*/
+    margin: 0;
+    padding: 0;
+}
+
+.b {
+    background-color: yellow;
+}
+
+.c {
+    background-color: red;
+}
+
+.outside{
+    height: 80px;
+}

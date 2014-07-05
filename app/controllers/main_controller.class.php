@@ -29,19 +29,16 @@ class MainController extends AppController {
 
     public function createMeetingAction($request){
         // die(print_r($request));
-
-
         MeetingController::newMeeting($request);
         //Fix hard coded user id
         MeetingManager::getCurrentMeetings(1);
-        // // Prepare ViewData
-        // $this->view->meetings = $meetings;
         
-        // $this->defaultAction();
         include('defaultView.php');
     }
 
-    public function liveMeetingAction(){
+    public function liveMeetingAction($query){
+        $participants = MeetingController::getActiveMeeting($query);
+        $this->view->participants = $participants;
         include('meeting.php');
     }
 }

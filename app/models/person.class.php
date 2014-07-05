@@ -72,4 +72,8 @@ class Person extends Model {
     public function setLoggedIn($loggedIn){
         return $this->loggedIn = $loggedIn;
     }
+
+    public function getGravatar(){
+        return md5($this->email);
+    }
 }

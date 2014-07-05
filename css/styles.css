@@ -102,6 +102,7 @@ body {
     background-color: green;
     width:60px;
     height:60px;
+    padding-top: 20px;
 }
 
 .scrollup, .scrolldown {
@@ -144,6 +145,7 @@ img {
   /*margin-right: 25px;*/
   /*border: 1px red solid;*/
   padding: 0;
+  margin-top: 3px;
 }
 
 .one img{
@@ -159,6 +161,11 @@ img {
   /*margin-left: -45px;*/
   /*border: 1px green solid;*/
   margin-left: -5px;
+}
+
+.mtg-start{
+  margin-top: -8px;
+  margin-bottom: 5px;
 }
 
 

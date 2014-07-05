@@ -37,4 +37,12 @@
             MeetingManager::createMeeting($meeting, $attendees);
         }
 
+        public function getActiveMeeting($request){
+            //extract meeting_id from request and pass off to manager
+            // $meeting_id = $request['meeting_id'];
+            $participants = MeetingManager::getParticipants($request);
+            // die(print_r($participants));
+            return $participants;
+        }
+
     }

@@ -4,7 +4,7 @@
 <hr>
 <div class="lower-container container text-center">
     <?php foreach($currMeetings as $key) { ?>
-        <button class='btn btn-default btn-success meeting-button' id='<?=$key->getId()?>'><?= $key->getPrettyDate()?></button>
+        <a href="http://jon.com/MVC/index.php/meeting?meeting_id=<?php echo $key->getId()?>" title="<?php echo $key->getTitle()?>"class="btn btn-default btn-success meeting-button" id="<?php echo $key->getId()?>"><?php echo $key->getPrettyDate()?></a>
     <?php    } ?>
     
 </div>

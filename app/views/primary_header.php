@@ -9,7 +9,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-briefcase"></span>Meeting Manager</a>
+        <a class="navbar-brand" href="http://jon.com/MVC/index.php"><span class="glyphicon glyphicon-briefcase"></span>Meeting Manager</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->

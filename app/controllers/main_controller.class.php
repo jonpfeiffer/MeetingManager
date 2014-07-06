@@ -31,8 +31,8 @@ class MainController extends AppController {
         // die(print_r($request));
         MeetingController::newMeeting($request);
         //Fix hard coded user id
-        MeetingManager::getCurrentMeetings(1);
-        
+        $currMeetings = MeetingManager::getCurrentMeetings(1);
+        $this->view->currMeetings = $currMeetings;
         include('defaultView.php');
     }
 

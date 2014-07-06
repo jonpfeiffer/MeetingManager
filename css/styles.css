@@ -123,7 +123,11 @@ footer {
   margin:0;
   bottom: 10px;
 }
-
+.timer{
+  height: 75px;
+  margin: auto;
+  margin-left: 73px;
+}
 .time{
   width: 75px;
   height: 75px;
@@ -145,11 +149,12 @@ img {
   /*margin-right: 25px;*/
   /*border: 1px red solid;*/
   padding: 0;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 .one img{
   margin-left: 10px;
+  border-radius: 5px;
 }
 
 .two {
@@ -160,13 +165,13 @@ img {
 .three {
   /*margin-left: -45px;*/
   /*border: 1px green solid;*/
-  margin-left: -5px;
+  margin-left: 0px;
+  border-radius: 5px;
 }
 
 .mtg-start{
   margin-top: -8px;
   margin-bottom: 5px;
 }
-
 
 

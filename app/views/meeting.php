@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="hidden due-date">
-        <form action="add_task.php">
+        <form id="<?php echo $participant->getId()?>" action="add_task.php">
             <div class="form-group">
                 <input type="text" placeholder="Submit revised financials." name="task" class="form-control">
                 <div class='input-group date' data-date-format="YYYY-MM-DD" id='datetimepicker2'>

@@ -106,4 +106,15 @@ class MeetingManager extends AppController{
         return $participants;
     }
 
+    public static function updateMeeting($meeting){ 
+        // die(print_r($meeting));
+        $sql_values = [
+            'meeting_id' => $meeting->getId(),
+            'datetime_start' => $meeting->getStart(),
+            'datetime_end' => $meeting->getEnd()
+        ];
+
+        db::insert_duplicate_key_update('meeting', $sql_values);
+    }
+
 }

@@ -45,4 +45,9 @@
             return $participants;
         }
 
+        // public function updateMeeting($request){
+        //     $meeting = MeetingManager::newMeeting();
+        //     $meeting->setStart($request['start']);
+        // }
+
     }

@@ -41,4 +41,22 @@ class MainController extends AppController {
         $this->view->participants = $participants;
         include('meeting.php');
     }
+
+    public function detailMeetingAction($query){
+        // die(print_r($query));
+        $meeting = MeetingManager::getMeeting($query);
+        $participants = MeetingManager::getParticipants($query);
+
+
+        $this->view->meetings = $meetings;
+        $this->view->participants = $participants;
+    }
+
+    public function oldMeetingAction($person_id){
+        $meetings = MeetingManager::getOldMeetings($person_id);
+        // die(print_r($meetings));
+        $this->view->meetings = $meetings;
+
+        include('oldMeetingView.php');
+    }
 }

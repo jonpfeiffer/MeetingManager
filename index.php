@@ -33,7 +33,13 @@ if ($tail == "newmeeting" && $isPost) {
     if(array_key_exists("query", $urlParts)){
         $qPieces = explode('=', $urlParts["query"]);
         $query = $qPieces[1];
-        $mainController->liveMeetingAction($query);
+        if ($query == 'old'){
+            $mainController->oldMeetingAction(1);
+        }elseif (MeetingManager::hasEndTime($query)){
+            $mainController->detailMeetingAction($query);
+        }else{
+            $mainController->liveMeetingAction($query);
+        }
     }else{
         $mainController->defaultAction();
     }

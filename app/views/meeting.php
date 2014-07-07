@@ -17,16 +17,16 @@
         </div>
     </div>
     <div class="hidden due-date">
-        <form id="<?php echo $participant->getId()?>" action="add_task.php">
+        <form id="<?php echo $participant->getId()?>" action="task_controller.class.php">
             <div class="form-group">
                 <input type="text" placeholder="Submit revised financials." name="task" class="form-control">
-                <div class='input-group date' data-date-format="YYYY-MM-DD" id='datetimepicker2'>
+                <div class='input-group date datetimepicker' data-date-format="YYYY-MM-DD">
                     <input type="text"  name="date_due" placeholder="Due Date" value="" class="form-control">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
-                <button type="button" class="form-control btn btn-block btn-sm">Assign Deliverable</button>
+                <button type="button" class="form-control btn btn-block btn-sm assign">Assign Deliverable</button>
             </div>
         </form>
     </div>

@@ -28,10 +28,23 @@
             console.log($(this).parent().siblings('.hidden'));
             if($(this).parent().siblings('.hidden').length !== 0){
                 $(this).parent().siblings('.hidden').removeClass('hidden');
+
             }else{
                 $(this).parent().siblings('.due-date').addClass('hidden');
             }
         });
+        
+        $('body').on('click', '.assign', function(e){
+            var person = $(this).parent().parent().attr('id');
+            
+            var data = $('#' + person).serialize();
+            data += '&person_id=' + person;
+            data += '&meeting_id=' + id;
+            console.log(data);
+            ajaxTask(data);
+        })
+
+        // $('body').on('click', 'div.two.button')
 
         $('body').on('click', 'div.three', function(e){
             var startThis = $(this).children();
@@ -74,13 +87,33 @@
                     meeting_id: id};
         $.ajax({
             type: 'POST',
-            url:  'timer_controller.php',
+            url:  'timer_controller.class.php',
             data: data,
             cache: false
             }) 
             .success(function(json){
                 console.log(json);
             })
+    }
+
+    function ajaxTask (data){
+        // var data = data;
+        // {
+        //     datetime_due: due,
+        //     deliverable_text: text,
+        //     meeting_id: id,
+        //     person_id: person
+        // };
+
+        $.ajax({
+            type: 'POST', 
+            url: 'task_controller.class.php',
+            data: data,
+            cache: false
+        })
+        .success(function(json){
+            console.log(json);
+        })
     }
 
     function getParameterByName(name) {

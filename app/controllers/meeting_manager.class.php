@@ -60,9 +60,9 @@ class MeetingManager extends AppController{
     public static function getOldMeetings($person_id){
         $sql = "SELECT *
                 FROM meeting
-                WHERE person_id = $person_id
-                AND datetime_sched < NOW() + INTERVAL 4 HOUR
-                AND datetime_start != NULL
+                WHERE person_id = 1
+                AND datetime_sched < NOW()
+                AND datetime_start IS NOT NULL
                 ORDER BY datetime_sched";
 
         $results = db::execute($sql);
@@ -70,11 +70,13 @@ class MeetingManager extends AppController{
         // die(print_r($results));
         $meetingResult = [];
         while($row = $results->fetch_assoc()){
-
+            // die(print_r($row));
             $meeting = new Meeting();
             $meeting->setId($row['meeting_id']);
             $meeting->setSched($row['datetime_sched']);
-
+            $meeting->setTitle($row['title']);
+            $meeting->duration = self::getMeetingLength($row['meeting_id']);
+            // die(print_r($meeting));
             array_push($meetingResult, $meeting);
 
         }
@@ -115,6 +117,55 @@ class MeetingManager extends AppController{
         ];
 
         db::insert_duplicate_key_update('meeting', $sql_values);
+    }
+
+    public static function getMeetingLength($meeting_id){
+        $sql = "SELECT TIME_TO_SEC(TIMEDIFF(
+                (SELECT datetime_start 
+                    FROM meeting 
+                    WHERE meeting_id=$meeting_id),
+                (SELECT datetime_end 
+                    FROM meeting 
+                    WHERE meeting_id=$meeting_id)
+                ))/60;";
+
+        $length = db::execute($sql);
+        $length = $length->fetch_assoc();
+        $length = implode(',', $length);
+        // die(print_r(abs($length)));
+        return abs($length);
+    }
+
+    public static function hasEndTime($meeting_id){
+        $sql = "SELECT * 
+                FROM meeting
+                WHERE meeting_id = $meeting_id
+                LIMIT 1";
+        $result = db::execute($sql);
+        $result = $result->fetch_assoc();
+
+        if ($result['datetime_end'] !== NULL){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static function getMeeting($meeting_id){
+        $sql = "SELECT * 
+                FROM meeting
+                WHERE meeting_id = $meeting_id
+                LIMIT 1";
+
+        $result = db::execute($sql);
+        $result = $result->fetch_assoc();
+        $meeting = new Meeting();
+        $meeting->setId($result['meeting_id']);
+        $meeting->setSched($result['datetime_sched']);
+        $meeting->setTitle($result['title']);
+        $meeting->duration = self::getMeetingLength($result['meeting_id']);
+
+        return $meeting;
     }
 
 }

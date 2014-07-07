@@ -8,4 +8,4 @@
     <?php    } ?>
     
 </div>
-<footer><button class="btn btn-default btn-lg btn-block">Past Meetings</button></footer>
+<footer><button onclick="location.href='http://jon.com/MVC/index.php/meeting?meeting_id=old'"class="btn btn-default btn-lg btn-block">Past Meetings</button></footer>

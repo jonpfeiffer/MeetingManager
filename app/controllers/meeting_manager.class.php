@@ -165,6 +165,9 @@ class MeetingManager extends AppController{
         $meeting->setId($result['meeting_id']);
         $meeting->setSched($result['datetime_sched']);
         $meeting->setTitle($result['title']);
+        $meeting->setLocation($result['location']);
+        $meeting->setStart($result['datetime_start']);
+        $meeting->setEnd($result['datetime_end']);
         $meeting->duration = self::getMeetingLength($result['meeting_id']);
 
         return $meeting;

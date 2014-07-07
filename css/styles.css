@@ -173,5 +173,36 @@ img {
   margin-top: -8px;
   margin-bottom: 5px;
 }
+.top {
+  height: 40px;
+  margin-top: -6px;
+  padding: 5px;
+}
+.duration {
+  display: inline;
+}
+
+.detGrav {
+  margin-right: -50px;
+  margin-left: 10px;
+  margin-top: -1px;
+}
+
+.tasklist {
+  min-height: 50px;
+}
+
+.tiny {
+  font-size: 10px;
+}
+
+.email {
+  margin: 0;
+}
+
+.well {
+  padding: 5px;
+}
+
 
 

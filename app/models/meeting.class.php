@@ -84,4 +84,11 @@ class Meeting extends Model {
 
   }
 
+  public function getPrettyTime($time){
+    $pieces = explode(" ", $time);
+    $time = $pieces[1];
+    $time = substr($time, 0, -3);
+    return $time;
+  }
+
 }

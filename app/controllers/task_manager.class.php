@@ -23,4 +23,22 @@ class TaskManager extends AppController{
         return $results->insert_id;
     }
 
+    public static function getTasks($meeting, $person){
+        $sql = "SELECT *
+                FROM deliverable
+                WHERE person_id = $person
+                AND meeting_id = $meeting";
+        $results = db::execute($sql);
+        $tasks = [];
+        while ($row = $results->fetch_assoc()){
+            $task = self::newTask();
+            $task->setPerson($row['person_id']);
+            $task->setMeeting($row['meeting_id']);
+            $task->setDeliverable($row['deliverable_text']);
+            $task->setDue($row['datetime_due']);
+            array_push($tasks, $task);
+        }
+        return $tasks;
+    }
+
 }

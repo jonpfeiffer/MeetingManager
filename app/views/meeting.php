@@ -1,4 +1,4 @@
-<div class="container-fluid outside">
+    <div class="container-fluid outside">
 <button class="btn btn-default btn-block btn-lg mtg-start">Start Meeting</button>
 <div class="row"><div class="timer"></div></div>
 <?php foreach ($participants as $participant) { ?>

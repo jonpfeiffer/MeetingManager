@@ -36,6 +36,7 @@
 	
 	<!-- Main JS -->
 	<script src="/MVC/js/meeting.js"></script>
+	<script src="/MVC/js/detail.js"></script>
 
 </body>
 </html>

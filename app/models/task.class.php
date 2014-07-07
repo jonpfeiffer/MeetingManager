@@ -47,4 +47,13 @@ class Task extends Model {
     public function setDue($datetime_due){
         return $this->datetime_due = $datetime_due;
     }
+
+    public function getPrettyDate(){
+
+      $date = preg_split( "/(-| )/", $this->datetime_due);
+      $dateout = $date[1] . "/" . $date[2];
+
+      return $dateout;
+
+  }
 }

@@ -2,15 +2,15 @@
     $(function(){
         var people = $('.three');
         var id = getParameterByName('meeting_id');
-        $('.timer').TimeCircles({start:false,time: {
+        
+       
+        $('.mtg-start').click(function(){
+            $('.timer').TimeCircles({time: {
                         Days: {show: false},
                         Hours: {show: true},
                         Minutes: {show: true},
                         Seconds: {show: true}
                         }});
-       
-        $('.mtg-start').click(function(){
-            $('.timer').TimeCircles().start();
             $('.mtg-end').removeClass('disabled');
             $('.mtg-start').addClass('disabled');
             ajaxStart(moment().format("YYYY-MM-DD HH:mm"), id);
@@ -18,10 +18,11 @@
 
         $('.mtg-end').click(function(){
             $('.timer').TimeCircles().stop();
-            console.log($('.timer').TimeCircles().getTime());
+            // console.log($('.timer').TimeCircles().getTime());
             ajaxEnd(moment().format("YYYY-MM-DD HH:mm"), id);
             //set up routing so meetings with end times go to meeting summary
-            location.href('http://jon.com/MVC/index.php/meeting?meeting_id' + id);
+            var newLocation = 'http://jon.com/MVC/index.php/meeting?meeting_id=' + id;
+            window.location = newLocation;
         });
        
         $('body').on('click', 'div.two', function(e){
@@ -40,8 +41,9 @@
             var data = $('#' + person).serialize();
             data += '&person_id=' + person;
             data += '&meeting_id=' + id;
-            console.log(data);
-            ajaxTask(data);
+            $(this).parent().parent().parent().addClass('hidden');
+            $(this).siblings('.form-control').empty();
+            // ajaxTask(data);
         })
 
         // $('body').on('click', 'div.two.button')
@@ -68,11 +70,10 @@
     });
     function ajaxStart (timestamp, id) {
         var data = {datetime_start: timestamp,
-                    datetime_end: null,
                     meeting_id: id};
         $.ajax({
             type: 'POST',
-            url:  'timer_controller.php',
+            url:  'http://jon.com/MVC/index.php/start',
             data: data,
             cache: false
             }) 
@@ -83,11 +84,10 @@
 
     function ajaxEnd (timestamp, id) {
         var data = {datetime_end: timestamp,
-                    datetime_start: null,
                     meeting_id: id};
         $.ajax({
             type: 'POST',
-            url:  'timer_controller.class.php',
+            url:  'http://jon.com/MVC/index.php/end',
             data: data,
             cache: false
             }) 
@@ -97,17 +97,10 @@
     }
 
     function ajaxTask (data){
-        // var data = data;
-        // {
-        //     datetime_due: due,
-        //     deliverable_text: text,
-        //     meeting_id: id,
-        //     person_id: person
-        // };
-
+        
         $.ajax({
             type: 'POST', 
-            url: 'task_controller.class.php',
+            url: 'http://jon.com/MVC/index.php/task',
             data: data,
             cache: false
         })

@@ -16,9 +16,9 @@ class TaskManager extends AppController{
             'meeting_id' => db::in_quotes($task->getMeeting()),
             'deliverable_text' => db::in_quotes($task->getDeliverable()),
             'datetime_due' => db::in_quotes($task->getDue()),
-            'is_complete' => false
+            'is_complete' => 0
         ];
-        $results = db::insert('task', $task_sql_values);
+        $results = db::insert('deliverable', $task_sql_values);
         // die(print_r($results));
         return $results->insert_id;
     }

@@ -16,9 +16,9 @@
       <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li class="text-center">Welcome <a href="#">$user</a></li>
-          <li class="active"><a href="#">Create a Meeting</a></li>
-          <li><a href="#">View Past Meetings</a></li>
-          <li><a href="loggedin.php">View Upcoming Meetings</a></li>
+          <li class="active"><a href="http://jon.com/MVC/index.php/newmeeting">Create a Meeting</a></li>
+          <li><a href="http://jon.com/MVC/index.php/meeting?meeting_id=old">View Past Meetings</a></li>
+          <li><a href="http://jon.com/MVC/index.php">View Upcoming Meetings</a></li>
           <li><a href="#">Logout</a></li>
             </ul>
           </li>

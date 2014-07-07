@@ -52,6 +52,42 @@ class MainController extends AppController {
         $this->view->participants = $participants;
     }
 
+    public function startMeetingAction(){
+        $meeting = MeetingManager::newMeeting();
+
+        $meeting->setId($_POST['meeting_id']);
+        $meeting->setStart($_POST['datetime_start']);
+
+        MeetingManager::updateMeeting($meeting);
+
+        header('Content-Type: application/json');
+        http_response_code('200');
+        echo json_encode($meeting);
+
+    }
+
+    public function endMeetingAction(){
+        $meeting = MeetingManager::newMeeting();
+
+        $meeting->setId($_POST['meeting_id']);
+        $meeting->setEnd($_POST['datetime_end']);
+
+        MeetingManager::updateMeeting($meeting);
+
+        header('Content-Type: application/json');
+        http_response_code('200');
+        echo json_encode($meeting);
+
+    }
+
+    public function addTaskAction($request){
+        TaskController::newTask($request);
+
+        header('Content-Type: application/json');
+        http_response_code('200');
+        echo json_encode($meeting);
+    }
+
     public function oldMeetingAction($person_id){
         $meetings = MeetingManager::getOldMeetings($person_id);
         // die(print_r($meetings));

@@ -111,11 +111,13 @@ class MeetingManager extends AppController{
     public static function updateMeeting($meeting){ 
         // die(print_r($meeting));
         $sql_values = [
-            'meeting_id' => $meeting->getId(),
-            'datetime_start' => $meeting->getStart(),
-            'datetime_end' => $meeting->getEnd()
+            'meeting_id' => db::in_quotes($meeting->getId()),
         ];
-
+        if(strlen($meeting->getStart()) === 0){
+            $sql_values['datetime_end'] = db::in_quotes($meeting->getEnd());
+        }else{
+            $sql_values['datetime_start'] = db::in_quotes($meeting->getStart());
+        }
         db::insert_duplicate_key_update('meeting', $sql_values);
     }
 

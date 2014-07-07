@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Person
+ * Task
  */
-class Person extends Model {
+class Task extends Model {
 
     public function __construct(){
     }

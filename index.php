@@ -43,6 +43,12 @@ if ($tail == "newmeeting" && $isPost) {
     }else{
         $mainController->defaultAction();
     }
+}elseif($tail == "start"){
+    $mainController->startMeetingAction();
+}elseif($tail == "end"){
+    $mainController->endMeetingAction();
+}elseif($tail == "task"){
+    $mainController->addTaskAction($_POST);
 }else{
     $mainController->defaultAction();
 }

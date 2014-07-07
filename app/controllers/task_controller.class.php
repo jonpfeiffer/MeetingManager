@@ -10,8 +10,8 @@
 
             $task->setPerson($request['person_id']);
             $task->setMeeting($request['meeting_id']);
-            $task->setDeliverable($request['deliverable_text']);
-            $task->setDue($request['datetime_due']);
+            $task->setDeliverable($request['task']);
+            $task->setDue($request['date_due']);
             
             $out = TaskManager::createTask($task);
             // die(print_r($out));

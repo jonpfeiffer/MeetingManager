@@ -37,10 +37,10 @@
                 ajaxTime(good, id, time);
             });
             // console.log($('.timer').TimeCircles().getTime());
-            // ajaxEnd(moment().format("YYYY-MM-DD HH:mm"), id);
+            ajaxEnd(moment().format("YYYY-MM-DD HH:mm"), id);
             // //set up routing so meetings with end times go to meeting summary
-            // var newLocation = 'http://jon.com/MVC/index.php/meeting?meeting_id=' + id;
-            // window.location = newLocation;
+            var newLocation = 'http://jon.com/MVC/index.php/meeting?meeting_id=' + id;
+            window.location = newLocation;
         });
        
         $('body').on('click', 'div.two', function(e){
@@ -124,6 +124,7 @@
             cache: false
             }) 
             .success(function(json){
+                console.log(json);
             })
     }
 

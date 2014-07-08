@@ -38,6 +38,7 @@ class MeetingManager extends AppController{
                 FROM meeting
                 WHERE person_id = $person_id
                 AND datetime_sched > NOW() - INTERVAL 4 HOUR
+                AND datetime_end IS NULL
                 ORDER BY datetime_sched";
 
         $results = db::execute($sql);
@@ -62,7 +63,7 @@ class MeetingManager extends AppController{
                 FROM meeting
                 WHERE person_id = 1
                 AND datetime_sched < NOW()
-                AND datetime_start IS NOT NULL
+                OR datetime_end IS NOT NULL
                 ORDER BY datetime_sched";
 
         $results = db::execute($sql);
@@ -85,7 +86,7 @@ class MeetingManager extends AppController{
 
     public static function getParticipants($meeting_id){
         $meeting_id = db::in_quotes($meeting_id);
-        $sql = "SELECT p.person_id, m.meeting_participant_id, p.email, p.first_name, p.last_name 
+        $sql = "SELECT p.person_id, m.meeting_participant_id, m.speaking_duration, p.email, p.first_name, p.last_name 
                 FROM person p 
                 JOIN meeting_participant m 
                 ON p.person_id = m.person_id 
@@ -99,6 +100,7 @@ class MeetingManager extends AppController{
             $person = new Person();
             $person->setId($row['person_id']);
             $person->participant_id = $row['meeting_participant_id'];
+            $person->speaking_duration = intval($row['speaking_duration']/60);
             $person->setFirstName($row['first_name']);
             $person->setLastName($row['last_name']);
             $person->setEmail($row['email']);
@@ -171,6 +173,20 @@ class MeetingManager extends AppController{
         $meeting->duration = self::getMeetingLength($result['meeting_id']);
 
         return $meeting;
+    }
+
+    public static function setTimes($request){
+        $participants = MeetingManager::getParticipants($request['meeting_id']);
+        foreach ($participants as $participant) {
+            if ($participant->getId() == $request['person_id']){
+                $attendee_sql_values = [
+                        'meeting_participant_id' => db::in_quotes($participant->participant_id),
+                        'speaking_duration' => db::in_quotes($request['speaking_duration']),
+                        ];
+                
+                db::insert_duplicate_key_update('meeting_participant', $attendee_sql_values);
+            }
+        }
     }
 
 }

@@ -12,16 +12,16 @@
             <p class="small text-center"><?php echo $participant->getEmail() ?></p>
             <p class="text-center small">Tap to assign a task.</p>
         </div>
-        <div class="three col-xs-3" data-timer"3600">
-            <div class="time"></div>
+        <div class="three col-xs-3">
+            <div class="time <?php echo $participant->getId() ?>time" data-timer="1"></div>
         </div>
     </div>
     <div class="hidden due-date">
         <form id="<?php echo $participant->getId()?>" action="task_controller.class.php">
             <div class="form-group">
-                <input type="text" placeholder="Submit revised financials." name="task" class="form-control">
+                <input type="text" placeholder="Enter Task Here" name="task" class="form-control">
                 <div class='input-group date datetimepicker' data-date-format="YYYY-MM-DD">
-                    <input type="text"  name="date_due" placeholder="Due Date" value="" class="form-control">
+                    <input type="text"  name="date_due" placeholder="Due Date" value="" class="form-control" required>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>

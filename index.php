@@ -49,6 +49,8 @@ if ($tail == "newmeeting" && $isPost) {
     $mainController->endMeetingAction();
 }elseif($tail == "task"){
     $mainController->addTaskAction($_POST);
+}elseif($tail == "time"){
+    $mainController->addTimeAction($_POST);
 }else{
     $mainController->defaultAction();
 }

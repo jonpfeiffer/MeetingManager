@@ -90,6 +90,14 @@ class MainController extends AppController {
         echo json_encode($meeting);
     }
 
+    public function addTimeAction($request){
+        MeetingManager::setTimes($request);
+
+        header('Content-Type: application/json');
+        http_response_code('200');
+        echo json_encode($meeting);
+    }
+
     public function oldMeetingAction($person_id){
         $meetings = MeetingManager::getOldMeetings($person_id);
         // die(print_r($meetings));

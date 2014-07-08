@@ -18,11 +18,29 @@
 
         $('.mtg-end').click(function(){
             $('.timer').TimeCircles().stop();
+            var allClocks = $('.time');
+            var allTimes = {};
+            allClocks.each(function(){
+                $(this).TimeCircles().stop();
+
+                var time = $(this).TimeCircles().getTime();
+                time = new String(time);
+                time = time.toString();
+                time = time.split(".");
+                time = Math.abs(time[0]);
+                console.log(time);
+                var junk = $(this).attr('class');
+                junk = junk.split(" ");
+                var good = junk[1].slice(0,2);
+                console.log(good);
+
+                ajaxTime(good, id, time);
+            });
             // console.log($('.timer').TimeCircles().getTime());
-            ajaxEnd(moment().format("YYYY-MM-DD HH:mm"), id);
-            //set up routing so meetings with end times go to meeting summary
-            var newLocation = 'http://jon.com/MVC/index.php/meeting?meeting_id=' + id;
-            window.location = newLocation;
+            // ajaxEnd(moment().format("YYYY-MM-DD HH:mm"), id);
+            // //set up routing so meetings with end times go to meeting summary
+            // var newLocation = 'http://jon.com/MVC/index.php/meeting?meeting_id=' + id;
+            // window.location = newLocation;
         });
        
         $('body').on('click', 'div.two', function(e){
@@ -37,20 +55,18 @@
         
         $('body').on('click', '.assign', function(e){
             var person = $(this).parent().parent().attr('id');
-            
             var data = $('#' + person).serialize();
             data += '&person_id=' + person;
             data += '&meeting_id=' + id;
             $(this).parent().parent().parent().addClass('hidden');
             $(this).siblings('.form-control').empty();
-            // ajaxTask(data);
+            ajaxTask(data);
         })
 
         // $('body').on('click', 'div.two.button')
 
         $('body').on('click', 'div.three', function(e){
             var startThis = $(this).children();
-            console.log(startThis);
             var people = $('.three');
             
             if ($(this).hasClass('bg-success')){
@@ -66,6 +82,7 @@
                         }}).start();
                     $(this).addClass('bg-success');
             }
+            console.log(startThis.TimeCircles().getTime());
         });
     });
     function ajaxStart (timestamp, id) {
@@ -96,6 +113,20 @@
             })
     }
 
+    function ajaxTime (person, meeting, time) {
+        var data = {person_id: person,
+                    meeting_id: meeting,
+                    speaking_duration: time};
+        $.ajax({
+            type: 'POST',
+            url:  'http://jon.com/MVC/index.php/time',
+            data: data,
+            cache: false
+            }) 
+            .success(function(json){
+            })
+    }
+
     function ajaxTask (data){
         
         $.ajax({
@@ -108,6 +139,8 @@
             console.log(json);
         })
     }
+
+
 
     function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");

@@ -11,7 +11,7 @@
                 <img class="img-responsive" src="http://gravatar.com/avatar/<?php echo $participant->getGravatar()?>?r=pg&d=retro&s=50">
             </div>
             <div class="col-xs-8 well tasklist">
-                <p class="text-center email"><?php echo $participant->getEmail()?></p>
+                <div><p class="email inline"><?php echo $participant->getEmail()?></p><p>Spoke for <?php echo $participant->speaking_duration ?> mins.</p></div>
                 <p class="text-center tiny">Assigned Tasks.</p>
                 <?php $tasks = TaskManager::getTasks($meeting->getId(), $participant->getId());?>
                 <?php foreach ($tasks as $task) { ?>

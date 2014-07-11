@@ -8,6 +8,8 @@ session_start();
 //if(!LoggedIn){
 //  header('Location: login.php');
 //}else{}
+
+
 // Get Routing info
 $urlParts = parse_url($_SERVER['REQUEST_URI']);
 $url = $urlParts["path"];
@@ -15,13 +17,7 @@ $pieces = explode('/', $url);
 $tail = $pieces[count($pieces)-1];    
 $isPost = ($_SERVER['REQUEST_METHOD'] == "POST");
 
-
-
-// if($tail == "newmeeting"){
-//     $mainController->newMeetingAction();
-// }elseif($tail == "login"){
-//     $mainController->loginAction();
-// }else
+//Routing Logic
 if ($tail == "newmeeting" && $isPost) {
     // die(print_r($_POST));
     $mainController->createMeetingAction($_POST);

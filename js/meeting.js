@@ -19,20 +19,22 @@
         $('.mtg-end').click(function(){
             $('.timer').TimeCircles().stop();
             var allClocks = $('.time');
-            var allTimes = {};
             allClocks.each(function(){
                 $(this).TimeCircles().stop();
 
                 var time = $(this).TimeCircles().getTime();
                 time = new String(time);
+                console.log(time);
                 time = time.toString();
+                console.log(time);
                 time = time.split(".");
+                console.log(time);
                 time = Math.abs(time[0]);
                 console.log(time);
                 var junk = $(this).attr('class');
                 junk = junk.split(" ");
                 var good = junk[1].slice(0,2);
-                console.log(good);
+                // console.log(good);
 
                 ajaxTime(good, id, time);
             });

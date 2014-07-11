@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"meeting",
+				"meeting_participant_id"
+			],
+			[
+				"Me",
+				"MeetingManager"
+			],
+			[
+				"deliverable",
+				"deliverable_text"
+			],
+			[
+				"datetime",
+				"datetime_end"
+			],
+			[
+				"aja",
+				"ajaxTask"
+			],
+			[
+				"in",
+				"in_quotes"
+			],
+			[
+				"del",
+				"deliverable_text"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
+				"_",
+				"_POST"
+			],
+			[
+				"ex",
+				"extract"
+			],
+			[
+				"sql",
+				"sql_values"
+			],
+			[
 				"mt",
 				"mtg-end"
 			],
@@ -32,10 +76,6 @@
 				"defaultAction"
 			],
 			[
-				"meeting",
-				"meeting_id"
-			],
-			[
 				"gett",
 				"gettype"
 			],
@@ -62,10 +102,6 @@
 			[
 				"btn",
 				"btn-success"
-			],
-			[
-				"ex",
-				"explode"
 			],
 			[
 				"bo",
@@ -122,10 +158,6 @@
 			[
 				"usr",
 				"usrresults"
-			],
-			[
-				"_",
-				"_SESSION"
 			],
 			[
 				"session_de",
@@ -256,10 +288,6 @@
 				"getSelectedCategory"
 			],
 			[
-				"in",
-				"inline-block"
-			],
-			[
 				"make",
 				"makeCatalog"
 			],
@@ -344,10 +372,6 @@
 				"className"
 			],
 			[
-				"del",
-				"delButton"
-			],
-			[
 				"st",
 				"style	Tag"
 			],
@@ -384,26 +408,10 @@
 	"buffers":
 	[
 		{
-			"file": "app/views/meeting.php",
+			"file": "index.php",
 			"settings":
 			{
-				"buffer_size": 1559,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/styles.css",
-			"settings":
-			{
-				"buffer_size": 2288,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/meeting.js",
-			"settings":
-			{
-				"buffer_size": 1828,
+				"buffer_size": 1530,
 				"line_ending": "Unix"
 			}
 		},
@@ -411,15 +419,23 @@
 			"file": "app/controllers/main_controller.class.php",
 			"settings":
 			{
-				"buffer_size": 1377,
+				"buffer_size": 3147,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/controllers/timer_controller.class.php",
+			"file": "app/models/meeting.class.php",
 			"settings":
 			{
-				"buffer_size": 109,
+				"buffer_size": 1651,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/meetingDetailView.php",
+			"settings":
+			{
+				"buffer_size": 1511,
 				"line_ending": "Unix"
 			}
 		}
@@ -536,30 +552,38 @@
 	},
 	"file_history":
 	[
-		"/var/www/jon/htdocs/MVC/js/date.js",
-		"/var/www/jon/htdocs/MVC/index.php",
-		"/var/www/jon/htdocs/MVC/app/views/defaultView.php",
-		"/var/www/jon/htdocs/MVC/app/views/primary_header.php",
-		"/var/www/jon/htdocs/MVC/app/controllers/meeting_controller.class.php",
-		"/var/www/jon/htdocs/MVC/app/controllers/meeting_manager.class.php",
-		"/var/www/jon/htdocs/MVC/app/models/person.class.php",
 		"/var/www/jon/htdocs/MVC/js/meeting.js",
+		"/var/www/jon/htdocs/MVC/css/styles.css",
+		"/var/www/jon/htdocs/MVC/app/controllers/meeting_manager.class.php",
+		"/var/www/jon/htdocs/MVC/app/controllers/main_controller.class.php",
+		"/var/www/jon/htdocs/MVC/app/views/meeting.php",
+		"/var/www/jon/htdocs/MVC/app/controllers/task_controller.class.php",
+		"/var/www/jon/htdocs/MVC/app/controllers/task_manager.class.php",
+		"/var/www/jon/htdocs/MVC/app/models/task.class.php",
+		"/var/www/jon/htdocs/MVC/app/views/oldMeetingView.php",
+		"/var/www/jon/htdocs/MVC/js/detail.js",
 		"/var/www/jon/htdocs/MVC/app/views/main.php",
+		"/var/www/jon/htdocs/MVC/app/views/primary_header.php",
+		"/var/www/jon/htdocs/MVC/app/views/meetingDetailView.php",
+		"/var/www/jon/htdocs/MVC/app/views/defaultView.php",
+		"/var/www/jon/htdocs/MVC/app/controllers/person_manager.class.php",
+		"/var/www/jon/htdocs/MVC/js/date.js",
+		"/var/www/jon/htdocs/MVC/app/controllers/timer_controller.class.php",
 		"/var/www/jon/htdocs/MVC/app/controllers/person_controller.class.php",
+		"/var/www/jon/htdocs/MVC/app/controllers/meeting_controller.class.php",
+		"/var/www/jon/htdocs/MVC/app/models/meeting.class.php",
+		"/var/www/jon/htdocs/MVC/index.php",
+		"/var/www/jon/htdocs/MVC/app/models/person.class.php",
 		"/var/www/jon/htdocs/MVC/css/TimeCircles.css",
 		"/var/www/jon/htdocs/MVC/test.css",
 		"/var/www/jon/htdocs/MVC/test.html",
 		"/var/www/jon/htdocs/MVC/app/js/meeting.js",
 		"/var/www/jon/htdocs/MVC/bower_components/TimeCircles/index",
-		"/var/www/jon/htdocs/MVC/app/controllers/person_manager.class.php",
-		"/var/www/jon/htdocs/MVC/app/controllers/main_controller.class.php",
 		"/var/www/jon/htdocs/MVC/js/addparticipants.js",
 		"/var/www/jon/htdocs/MVC/app/views/newMeetingView.php",
 		"/var/www/jon/htdocs/MVC/js/main.js",
-		"/var/www/jon/htdocs/MVC/css/styles.css",
 		"/var/www/jon/htdocs/MVC/app/controllers/person_controller.php",
 		"/var/www/jon/htdocs/MVC/addparticipants.php",
-		"/var/www/jon/htdocs/MVC/app/models/meeting.class.php",
 		"/var/www/jon/htdocs/MVC/newmeeting.php",
 		"/var/www/jon/htdocs/MVC/loggedin.php",
 		"/var/www/jon/htdocs/MVC/app/controllers/meeting_controller.php",
@@ -655,19 +679,11 @@
 		"/home/jpfeiffer/Projects/elevator-part1/Elevator-Part-1/elevator.html",
 		"/home/jpfeiffer/.config/sublime-text-3/Packages/User/hello.sublime-snippet",
 		"/home/jpfeiffer/.config/sublime-text-3/Packages/User/for.sublime-snippet",
-		"/home/jpfeiffer/Projects/Scratch/test.json",
-		"/home/jpfeiffer/Projects/myFirstDesign/first-design/design.css",
-		"/home/jpfeiffer/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/home/jpfeiffer/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-		"/home/jpfeiffer/Projects/elevator-part1/Elevator-Part-1/test.js",
-		"/home/jpfeiffer/.config/sublime-text-3/Packages/JSHint Gutter/JSHint.sublime-settings",
-		"/home/jpfeiffer/Projects/Scratch/style.css",
-		"/home/jpfeiffer/Projects/story/sleepCave.html",
-		"/home/jpfeiffer/Projects/YellowRed/style.css"
+		"/home/jpfeiffer/Projects/Scratch/test.json"
 	],
 	"find":
 	{
-		"height": 44.0
+		"height": 46.0
 	},
 	"find_in_files":
 	{
@@ -681,6 +697,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mtg",
+			"person",
+			"Person",
+			"person",
+			"Person",
+			"person",
+			"Person",
+			"person",
+			"Person",
+			"person",
+			"Person",
+			"person",
+			"meeting",
 			"time",
 			"Meeting",
 			"meeting",
@@ -782,115 +811,54 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/views/meeting.php",
+					"file": "index.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1559,
+						"buffer_size": 1530,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1521,
-								1521
+								1429,
+								1429
 							]
 						],
 						"settings":
 						{
-							"_anf_new": "",
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "css/styles.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2288,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1691,
-								1691
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3248.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "js/meeting.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1828,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								145,
-								190
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 792.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 1,
 					"file": "app/controllers/main_controller.class.php",
-					"semi_transient": false,
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1377,
+						"buffer_size": 3147,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1127,
-								1127
+								3040,
+								3040
 							]
 						],
 						"settings":
@@ -900,39 +868,68 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2160.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/controllers/timer_controller.class.php",
+					"buffer": 2,
+					"file": "app/models/meeting.class.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 109,
+						"buffer_size": 1651,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								96,
-								96
+								1487,
+								1487
 							]
 						],
 						"settings":
 						{
-							"_anf_new": "",
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1800.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/views/meetingDetailView.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1511,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								906,
+								906
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 234.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -940,7 +937,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 44.0
+		"height": 38.0
 	},
 	"input":
 	{
